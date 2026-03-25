@@ -1,0 +1,18 @@
+
+---
+
+# 📦 requirements.txt
+
+```txt
+gensim
+wordcloud
+matplotlib
+seaborn
+beautifulsoup4
+requests
+nltk
+scikit-learn
+PyPDF2
+torch
+pandas
+numpy
