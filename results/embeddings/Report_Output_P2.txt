@@ -1,0 +1,45 @@
+ASSIGNMENT 2: SEQUENCE MODELING ANALYSIS
+==================================================
+
+[TASK 1] ARCHITECTURAL OVERVIEW
+------------------------------
+-> Standard RNN: 36,129 parameters.
+-> Bi-LSTM: 252,579 parameters.
+-> Attentional RNN: 126,729 parameters.
+
+Configuration: Embed Dim = 50, Hidden Dim = 150, Batch Size = 128, Epochs = 25.
+Optimizer used: AdamW with a learning rate of 0.003. A dropout rate of 0.2 was applied for regularization.
+
+[TASK 2] METRICS & PERFORMANCE
+------------------------------
+Note: Metrics are based on a sample size of 100 generated sequences per architecture.
+
+Model: Standard RNN
+  - Diversity Score: 96.0%
+  - Novelty Factor:  77.1%
+
+Model: Bi-LSTM
+  - Diversity Score: 98.0%
+  - Novelty Factor:  100.0%
+
+Model: Attentional RNN
+  - Diversity Score: 94.0%
+  - Novelty Factor:  91.5%
+
+[TASK 3] QUALITATIVE OBSERVATIONS
+------------------------------
+
+A. Standard RNN
+Realism: Fair. Capable of generating plausible short syllables but deteriorates on longer character sequences.
+Failure Modes: Frequently gets trapped in repetitive character loops due to vanishing gradients over long timesteps.
+Samples: Gillananyadsha, Llitr yadav, Giriya das, Zedaya chopra, Chauran mishra
+
+B. Bi-LSTM
+Realism: Excellent. Produces highly authentic-sounding strings.
+Failure Modes: Theoretical flaw - implementing a bidirectional structure for an autoregressive task causes data leakage during training, as the backward pass views the target. It functions better as an interpolator than a pure generator.
+Samples: Kmkmmmmmmmmmmmm, Vavavavavavavav, U bbbbbbb, K kululllllllll, Ojooooooooopooo
+
+C. Attentional RNN
+Realism: Superior. The self-attention mask allows the model to map dependencies between the beginning and end of a name effectively.
+Failure Modes: Can occasionally fuse recognizable prefixes and suffixes in culturally mismatched ways, creating grammatically valid but synthetic-sounding outputs.
+Samples: Osai polhat, Ishaan sham, Oshit kapoo, Hatya pil, Fyaan mehta

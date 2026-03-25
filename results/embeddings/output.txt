@@ -1,0 +1,28 @@
+=== CSL 7640: PROBLEM 1 AUTOMATED REPORT ===
+
+--- TASK 1: DATASET STATISTICS ---
+Total Tokens: 13771
+Vocabulary Size: 3253
+Corpus File Size: 0.11 MB
+
+--- TASK 2: GENSIM BASELINE MODELS ---
+--- TASK 2: PYTORCH FROM SCRATCH MODEL ---
+PyTorch Scratch Skip-gram trained using nn.Embedding and nn.Linear.
+
+--- TASK 3: NEAREST NEIGHBORS (GENSIM VS PYTORCH) ---
+Target: 'research'
+  Gensim: ['carrying', 'proposal', 'carry']
+  PyTorch: ['native', 'spot', 'earlier']
+
+Target: 'student'
+  Gensim: ['provisionally', 'formc', 'indicated']
+  PyTorch: ['projects', 'reason', 'outcomes']
+
+Target: 'phd'
+  Gensim: ['relaxation', 'regularexternalparttime', 'refer']
+  PyTorch: ['karna', 'declared', 'independentstudy']
+
+Target: 'exam'
+  Gensim: ['publish', 'grant', 'conducts']
+  PyTorch: ['bygone', 'dedicated', 'procedures']
+
